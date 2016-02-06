@@ -50,8 +50,9 @@ module.exports = function(passport) {
           });
         }
 
-        // making luca.paga@gmail.com an admin (hardcoded!)
+        // Making luca.paga@libero.it an admin
         if(user.email === "luca.paga@libero.it") {
+          console.log("User is '', elevating to ADMIN");
           user.roles.push("admin");
         }
 
