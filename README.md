@@ -1,3 +1,7 @@
+
+
+## MEAN-ON-OPENSHIFT fork by Luca Paganelli
+
 ## Important: This project is currently unmaintained. 
 
 # [![MEAN Logo](http://mean.io/system/assets/img/logos/meanlogo.png)](http://mean.io/) MEAN Stack
