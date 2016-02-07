@@ -14,7 +14,17 @@ angular.module('mean.users')
           .success(function(response) {
             // authentication OK
             $scope.loginError = 0;
+
+            // luca.paganelli - flagging user isAdmin()
+            var isAdmin = false;
+            response.user.roles.forEach(function (anUserRole, index, array) {
+              if(anUserRole === "admin") {
+                response.user.isAdmin = true;
+                console.log("logged user is ADMIN!");
+              }
+            });
             $rootScope.user = response.user;
+
             $rootScope.$emit('loggedin');
             if (response.redirect) {
               if (window.location.href === response.redirect) {
