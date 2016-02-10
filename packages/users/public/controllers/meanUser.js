@@ -15,15 +15,18 @@ angular.module('mean.users')
             // authentication OK
             $scope.loginError = 0;
 
+            $rootScope.user = response.user;
+
             // luca.paganelli - flagging user isAdmin()
-            var isAdmin = false;
-            response.user.roles.forEach(function (anUserRole, index, array) {
+            $rootScope.user.isAdmin = false;
+            console.log("logged user is: " + $rootScope.user);
+            console.log("logged user role(s) is/are: " + $rootScope.user.roles);
+            $rootScope.user.roles.forEach(function (anUserRole, index, array) {
               if(anUserRole === "admin") {
-                response.user.isAdmin = true;
+                $rootScope.user.isAdmin = true;
                 console.log("logged user is ADMIN!");
               }
             });
-            $rootScope.user = response.user;
 
             $rootScope.$emit('loggedin');
             if (response.redirect) {
