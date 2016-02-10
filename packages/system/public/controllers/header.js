@@ -32,6 +32,11 @@ angular.module('mean.system').controller('HeaderController', ['$scope', '$rootSc
         authenticated: !! $rootScope.user,
         user: $rootScope.user
       };
+
+      // luca.paganelli - 20160210
+      console.log("User logged in! User is " + $scope.global.user.username +
+                  ", has the following roles [" + $scope.global.user.roles +
+                  "] and its 'isAdmin' flag is set to " + $scope.global.user.isAdmin);
     });
 
   }

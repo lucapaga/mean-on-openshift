@@ -19,7 +19,7 @@ angular.module('mean.users')
 
             // luca.paganelli - flagging user isAdmin()
             $rootScope.user.isAdmin = false;
-            console.log("logged user is: " + $rootScope.user);
+            console.log("logged user is: ", $rootScope.user);
             console.log("logged user role(s) is/are: " + $rootScope.user.roles);
             $rootScope.user.roles.forEach(function (anUserRole, index, array) {
               if(anUserRole === "admin") {
