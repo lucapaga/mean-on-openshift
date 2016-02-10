@@ -24,6 +24,14 @@ MeanUser.register(function(app, auth, passport, database) {
   //     menu: 'main'
   // });
 
+  // luca.paganelli - 20160210 - menu gestione utenti
+  Articles.menus.add({
+    'roles': ['admin'],
+    'title': 'Users',
+    'link': 'all users'
+  });
+
+
   MeanUser.aggregateAsset('js', 'meanUser.js');
 
   /**

@@ -10,6 +10,10 @@ module.exports = function(MeanUser, app, auth, database, passport) {
   app.route('/users/me')
     .get(users.me);
 
+  // luca.paganelli - 20160210 - nuovo REST: scarico di tutti gli utenti
+  app.route('/users/all')
+    .get(users.listAllUsers);
+
   // Setting up the users api
   app.route('/register')
     .post(users.create);

@@ -114,6 +114,34 @@ exports.me = function(req, res) {
 };
 
 /**
+ * luca.paganelli - 20160210 - elenco di tutti gli utenti a sistema
+ * List All Users
+ */
+exports.listAllUsers = function(req, res, next) {
+  console.log("Request is initiated by '"+req.user+"'");
+  console.log("User roles are: " + req.user.roles);
+  console.log("Is user authenticated? " + req.isAuthenticated());
+  if(!req.isAuthenticated() || req.user.roles.indexOf('admin') <= 0) {
+    console.log("So unable to proceed");
+    res.json({
+      "exitCode" : "UNAUTHORIZED",
+      "results" : []
+    });
+  } else {
+    console.log("OK, retrieving users from database");
+    User.find(function (err, activeUsers) {
+      if (err) return next(err);
+      //if (!activeUsers) return next(new Error('Failed to load User ' + id));
+      console.log("" + activeUsers.length + " have been retrieved");
+      res.json({
+        "exitCode" : "EXECUTED",
+        "results" : activeUsers
+      });
+    });
+  }
+};
+
+/**
  * Find user by id
  */
 exports.user = function(req, res, next, id) {
