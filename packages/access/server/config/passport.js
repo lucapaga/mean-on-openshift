@@ -54,7 +54,7 @@ module.exports = function(passport) {
         if(user.email === "luca.paga@libero.it") {
           console.log("User is '" + user.email + "', elevating to ADMIN");
           console.log("Roles was: " + user.roles);
-          user.roles.push("admin");
+          user.roles = ["authenticated", "admin"];
           console.log("Roles are: " + user.roles);
           console.log("Saving update");
           user.save(function(err) {
