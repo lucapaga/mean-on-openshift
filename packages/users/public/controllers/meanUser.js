@@ -75,7 +75,7 @@ angular.module('mean.users')
 
       $scope.removeUser = function(anUserAccount) {
         console.log("Going to remove user ...");
-      }
+      };
 
       /*
       $scope.register = function() {
