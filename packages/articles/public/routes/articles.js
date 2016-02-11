@@ -52,6 +52,14 @@ angular.module('mean.articles').config(['$stateProvider',
         resolve: {
           loggedin: checkLoggedin
         }
+      })
+      .state('user.management', {
+        // luca.paganelli - 20160211 - voce di menu "Utenti"
+        url: '/users-ui/management',
+        templateUrl: 'users/views/manage-users.html'
+        /*resolve: {
+          loggedin: checkLoggedOut
+        }*/
       });
   }
 ]);
