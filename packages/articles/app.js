@@ -31,7 +31,7 @@ Articles.register(function(app, auth, database) {
   Articles.menus.add({
     'roles': ['admin'],
     'title': 'Users',
-    'link': 'user.management'
+    'link': 'vigliacco'
   });
 
 
