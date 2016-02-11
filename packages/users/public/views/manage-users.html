@@ -1,0 +1,47 @@
+<div data-ng-controller="UsersManagementCtrl" data-ng-init="retrieveAll()">
+  <h1>Accounted users</h1>
+  <table>
+    <thead>
+      <th>
+        Name
+      </th>
+      <th>
+        Username
+      </th>
+      <th>
+        E-Mail
+      </th>
+      <th>
+        Roles
+      </th>
+      <th>
+        Provider
+      </th>
+      <th>
+        Actions
+      </th>
+    </thead>
+    <tbody>
+      <tr data-ng-repeat="userAccount in listOfUsers">
+        <td>
+          {{userAccount.name}}
+        </td>
+        <td>
+          {{userAccount.username}}
+        </td>
+        <td>
+          {{userAccount.email}}
+        </td>
+        <td>
+          {{userAccount.roles}}
+        </td>
+        <td>
+          {{userAccount.provider}}
+        </td>
+        <td>
+          ICS
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -46,6 +46,62 @@ angular.module('mean.users')
       };
     }
   ])
+  .controller('UsersManagementCtrl', ['$scope', '$rootScope', '$http', '$location',
+    function($scope, $rootScope, $http, $location) {
+      // luca.paganelli - 20160211 - controller per la gestione utenti
+      //$scope.user = {};
+
+      $scope.retrieveAll = function() {
+        /*
+        Articles.query(function(articles) {
+          $scope.articles = articles;
+        });
+        */
+        $scope.listOfUsers = [];
+        console.log("retrieving all users ...");
+        $http.get('/users/all')
+          .success(function(resPayload){
+            console.log("here's what I got", resPayload);
+            if(resPayload.exitCode === "UNAUTHORIZED") {
+              console.log("Arr... It seems U R not authorized!");
+            }
+
+            $scope.listOfUsers = resPayload.results;
+          })
+          .error(function (error) {
+            console.log("Ooops, got an error!", error);
+          });
+      };
+
+      /*
+      $scope.register = function() {
+        $scope.usernameError = null;
+        $scope.registerError = null;
+        $http.post('/register', {
+          email: $scope.user.email,
+          password: $scope.user.password,
+          confirmPassword: $scope.user.confirmPassword,
+          username: $scope.user.username,
+          name: $scope.user.name
+        })
+          .success(function() {
+            // authentication OK
+            $scope.registerError = 0;
+            $rootScope.user = $scope.user;
+            $rootScope.$emit('loggedin');
+            $location.url('/');
+          })
+          .error(function(error) {
+            // Error: authentication failed
+            if (error === 'Username already taken') {
+              $scope.usernameError = error;
+            } else if (error === 'Email already taken') {
+              $scope.emailError = error;
+            } else $scope.registerError = error;
+          });
+      };*/
+    }
+  ])
   .controller('RegisterCtrl', ['$scope', '$rootScope', '$http', '$location',
     function($scope, $rootScope, $http, $location) {
       $scope.user = {};

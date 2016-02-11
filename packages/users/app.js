@@ -28,7 +28,7 @@ MeanUser.register(function(app, auth, passport, database) {
   MeanUser.menus.add({
     'roles': ['admin'],
     'title': 'Users',
-    'link': 'all users'
+    'link': 'user.management'
   });
 
 
