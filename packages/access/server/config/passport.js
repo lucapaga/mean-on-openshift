@@ -51,6 +51,7 @@ module.exports = function(passport) {
         }
 
         // Making luca.paga@libero.it an admin
+        /*
         if(user.email === "luca.paga@libero.it") {
           console.log("User is '" + user.email + "', elevating to ADMIN");
           console.log("Roles was: " + user.roles);
@@ -65,7 +66,8 @@ module.exports = function(passport) {
             }
           });
         }
-
+        */
+        
         return done(null, user);
       });
     }

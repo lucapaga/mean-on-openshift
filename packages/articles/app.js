@@ -27,6 +27,13 @@ Articles.register(function(app, auth, database) {
     'title': 'Create New Article',
     'link': 'create article'
   });
+  // luca.paganelli - 20160210 - menu gestione utenti
+  Articles.menus.add({
+    'roles': ['admin'],
+    'title': 'Users',
+    'link': 'user.management'
+  });
+
 
   //Articles.aggregateAsset('js','/packages/system/public/services/menus.js', {group:'footer', absolute:true, weight:-9999});
   //Articles.aggregateAsset('js', 'test.js', {group: 'footer', weight: -1});
