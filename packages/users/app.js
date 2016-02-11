@@ -30,7 +30,11 @@ MeanUser.register(function(app, auth, passport, database) {
     'title': 'Users',
     'link': 'user.management'
   });
-
+  MeanUser.menus.add({
+    'roles': ['admin'],
+    'title': 'Register User',
+    'link': 'auth.register'
+  });
 
   MeanUser.aggregateAsset('js', 'meanUser.js');
 
