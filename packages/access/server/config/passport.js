@@ -56,6 +56,14 @@ module.exports = function(passport) {
           console.log("Roles was: " + user.roles);
           user.roles.push("admin");
           console.log("Roles are: " + user.roles);
+          console.log("Saving update");
+          user.save(function(err) {
+            if(err) {
+              console.log("Unable to save update: ", err);
+            } else {
+              console.log("Yes! Saved!");
+            }
+          });
         }
 
         return done(null, user);
