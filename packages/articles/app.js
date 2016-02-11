@@ -19,19 +19,19 @@ Articles.register(function(app, auth, database) {
   //We are adding a link to the main menu for all authenticated users
   Articles.menus.add({
     'roles': ['authenticated'],
-    'title': 'Articles',
+    'title': 'Articoli',
     'link': 'all articles'
   });
   Articles.menus.add({
     'roles': ['authenticated'],
-    'title': 'Create New Article',
+    'title': 'Nuovo Articolo',
     'link': 'create article'
   });
   // luca.paganelli - 20160210 - menu gestione utenti
   Articles.menus.add({
     'roles': ['admin'],
-    'title': 'Users',
-    'link': 'vigliacco'
+    'title': 'Utenze',
+    'link': 'users.manage'
   });
 
 

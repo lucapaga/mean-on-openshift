@@ -53,9 +53,9 @@ angular.module('mean.articles').config(['$stateProvider',
           loggedin: checkLoggedin
         }
       })
-      .state('vigliacco', {
+      .state('users.manage', {
         // luca.paganelli - 20160211 - voce di menu "Utenti"
-        url: '/bastardo',
+        url: '/usr/manage',
         templateUrl: 'users/views/manage-users.html'
         /*resolve: {
           loggedin: checkLoggedOut

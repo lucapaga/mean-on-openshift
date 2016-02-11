@@ -1,7 +1,10 @@
 <div data-ng-controller="UsersManagementCtrl" data-ng-init="retrieveAll()">
   <h1>Accounted users</h1>
-  <table>
+  <table class="table table-bordered table-hover">
     <thead>
+      <th>
+        ID
+      </th>
       <th>
         Name
       </th>
@@ -24,6 +27,9 @@
     <tbody>
       <tr data-ng-repeat="userAccount in listOfUsers">
         <td>
+          {{userAccount._id}}
+        </td>
+        <td>
           {{userAccount.name}}
         </td>
         <td>
@@ -39,7 +45,9 @@
           {{userAccount.provider}}
         </td>
         <td>
-          ICS
+          <a class="btn" data-ng-click="removeUser(userAccount);">
+            <i class="glyphicon glyphicon-trash"></i>
+          </a>
         </td>
       </tr>
     </tbody>
