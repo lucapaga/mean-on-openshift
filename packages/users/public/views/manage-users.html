@@ -45,8 +45,14 @@
           {{userAccount.provider}}
         </td>
         <td>
-          <a class="btn" data-ng-click="removeUser(userAccount);">
+          <a class="btn" data-ng-click="removeUser(userAccount)">
             <i class="glyphicon glyphicon-trash"></i>
+          </a>
+          <a class="btn" data-ng-show="isAdministrator(userAccount)" data-ng-click="promoteUser(userAccount)">
+            <i class="glyphicon glyphicon-star-empty"></i>
+          </a>
+          <a class="btn" data-ng-hide="isAdministrator(userAccount)" data-ng-click="demoteUser(userAccount)">
+            <i class="glyphicon glyphicon-star"></i>
           </a>
         </td>
       </tr>

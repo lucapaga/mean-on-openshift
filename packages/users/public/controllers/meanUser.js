@@ -49,7 +49,31 @@ angular.module('mean.users')
   .controller('UsersManagementCtrl', ['$scope', '$rootScope', '$http', '$location',
     function($scope, $rootScope, $http, $location) {
       // luca.paganelli - 20160211 - controller per la gestione utenti
-      //$scope.user = {};
+
+      $scope.isAdministrator = function(anUser) {
+        if(anUser) {
+          if(anUser.roles) {
+            console.log("User roles are ", anUser.roles, " looping on them");
+            if(anUser.isAdmin) {
+              console.log("User 'isAdmin' is TRUE");
+              return true;
+            } else {
+              if(anUser.roles.indexOf('admin') !== -1) {
+                console.log("User has 'admin' in his roles");
+                return true;
+              }else{
+                console.log("User is NOT admin");
+                return false;
+              }
+            }
+          } else {
+            console.log("No roles, no administrator");
+            return false;
+          }
+        } else {
+          console.log("input user is null, unable to check");
+        }
+      }
 
       $scope.retrieveAll = function() {
         /*
@@ -76,34 +100,6 @@ angular.module('mean.users')
       $scope.removeUser = function(anUserAccount) {
         console.log("Going to remove user ...");
       };
-
-      /*
-      $scope.register = function() {
-        $scope.usernameError = null;
-        $scope.registerError = null;
-        $http.post('/register', {
-          email: $scope.user.email,
-          password: $scope.user.password,
-          confirmPassword: $scope.user.confirmPassword,
-          username: $scope.user.username,
-          name: $scope.user.name
-        })
-          .success(function() {
-            // authentication OK
-            $scope.registerError = 0;
-            $rootScope.user = $scope.user;
-            $rootScope.$emit('loggedin');
-            $location.url('/');
-          })
-          .error(function(error) {
-            // Error: authentication failed
-            if (error === 'Username already taken') {
-              $scope.usernameError = error;
-            } else if (error === 'Email already taken') {
-              $scope.emailError = error;
-            } else $scope.registerError = error;
-          });
-      };*/
     }
   ])
   .controller('RegisterCtrl', ['$scope', '$rootScope', '$http', '$location',
