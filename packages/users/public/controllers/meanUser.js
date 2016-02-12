@@ -99,6 +99,19 @@ angular.module('mean.users')
 
       $scope.removeUser = function(anUserAccount) {
         console.log("Going to remove user ...");
+        // delete user
+      };
+
+      $scope.promoteUser = function(anUserAccount) {
+        console.log("Elevating user to ADMIN");
+        anUserAccount.roles.push("admin");
+        // save
+      };
+
+      $scope.demoteUser = function(anUserAccount) {
+        console.log("Removing ADMIN grants ...");
+        // remove
+        // save
       };
     }
   ])
