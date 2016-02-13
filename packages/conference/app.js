@@ -5,7 +5,7 @@
  */
 var Module = require('meanio').Module;
 
-var  = new Module('conference');
+var Conference = new Module('conference');
 
 /*
  * All MEAN packages require registration
