@@ -47,7 +47,7 @@ exports.user = function(req, res, next, id) {
 /**
  * Elenca tutte le Conferenze
  */
-exports.listALl = function(req, res) {
+exports.listAll = function(req, res) {
   Conferences.find()
              .sort('-starts')
              .exec(function(err, confz) {

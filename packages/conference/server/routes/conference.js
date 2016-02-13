@@ -13,7 +13,7 @@ var hasAuthorization = function(req, res, next) {
 module.exports = function(conference, app, auth) {
 
   app.route('/conf/conference')
-    .get(conference.listALl)
+    .get(conference.listAll)
     .post(auth.requiresLogin, hasAuthorization, conference.createConf);
 
   app.route('/conf/conference/:confId')
@@ -25,7 +25,7 @@ module.exports = function(conference, app, auth) {
     .post(auth.requiresLogin, hasAuthorization, conference.createSpeech)
 
   app.route('/conf/conference/:confId/speech/:speechId')
-    .get(auth.requiresLogin, conference.showSpeech)
+    .get(conference.showSpeech)
     .post(auth.requiresLogin, hasAuthorization, conference.updateSpeech);
 
   app.route('/conf/conference/:confId/speech/:speechId/enroll')
