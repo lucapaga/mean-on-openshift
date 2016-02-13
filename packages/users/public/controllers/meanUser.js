@@ -109,7 +109,8 @@ angular.module('mean.users')
       };
 
       $scope.demoteUser = function(anUserAccount) {
-        console.log("Removing ADMIN grants ...");
+        console.log("Removing ADMIN grants on " + anUserAccount.username + " - ", anUserAccount);
+        console.log("User current roles are: ", anUserAccount.roles);
         var adminPositions = [];
         for (var i = 0; i < anUserAccount.roles.length; i++) {
           if(anUserAccount.roles[i] === "admin") {
@@ -118,8 +119,10 @@ angular.module('mean.users')
         };
         console.log("Found " + adminPositions.length + " occurence/ies of 'admin' role for user");
         adminPositions.forEach(function(item, index){
+          console.log("Splicing index ", item);
           adminPositions.splice(item, 1);
         });
+        console.log("User new roles are: ", anUserAccount.roles);
         // remove
         // save
       };

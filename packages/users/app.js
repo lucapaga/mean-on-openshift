@@ -25,13 +25,11 @@ MeanUser.register(function(app, auth, passport, database) {
   // });
 
   // luca.paganelli - 20160210 - menu gestione utenti
-  /*
-  MeanUser.menus.add({
+  Articles.menus.add({
     'roles': ['admin'],
-    'title': 'Register User',
-    'link': 'auth.register'
+    'title': 'Utenze',
+    'link': 'users manage'
   });
-  */
 
   MeanUser.aggregateAsset('js', 'meanUser.js');
 

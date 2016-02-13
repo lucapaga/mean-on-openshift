@@ -28,11 +28,13 @@ Articles.register(function(app, auth, database) {
     'link': 'create article'
   });
   // luca.paganelli - 20160210 - menu gestione utenti
+  /*
   Articles.menus.add({
     'roles': ['admin'],
     'title': 'Utenze',
     'link': 'users manage'
   });
+  */
 
 
   //Articles.aggregateAsset('js','/packages/system/public/services/menus.js', {group:'footer', absolute:true, weight:-9999});
