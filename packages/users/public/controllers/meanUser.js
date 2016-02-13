@@ -110,6 +110,16 @@ angular.module('mean.users')
 
       $scope.demoteUser = function(anUserAccount) {
         console.log("Removing ADMIN grants ...");
+        var adminPositions = [];
+        for (var i = 0; i < anUserAccount.roles.length; i++) {
+          if(anUserAccount.roles[i] === "admin") {
+            adminPositions.push(i);
+          }
+        };
+        console.log("Found " + adminPositions.length + " occurence/ies of 'admin' role for user");
+        adminPositions.forEach(function(item, index){
+          adminPositions.splice(item, 1);
+        });
         // remove
         // save
       };
