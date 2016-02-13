@@ -3,6 +3,12 @@
 var path = require('path'),
   rootPath = path.normalize(__dirname + '/../..');
 
+console.log("************* all.js *************");
+console.log("#--[ENV]--# {process.env.PORT} = '"+process.env.PORT+"'");
+console.log("#--[ENV]--# {process.env.HOST} = '"+process.env.HOST+"'");
+console.log("#--[ENV]--# {process.env.HOSTNAME} = '"+process.env.HOSTNAME+"'");
+console.log("#--[ENV]--# {process.env.MONGOHQ_URL} = '"+process.env.MONGOHQ_URL+"'");
+
 module.exports = {
   root: rootPath,
   http: {
