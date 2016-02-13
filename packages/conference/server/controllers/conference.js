@@ -94,7 +94,7 @@ exports.updateConf = function(req, res) {
  */
 exports.schedule = function(req, res) {
   res.json(500, {exitCode: "UNINMPLEMENTED"});
-};
+};  
 
 /**
  * Crea un nuovo Speech nell'ambito di una Conferenza

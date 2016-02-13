@@ -22,7 +22,7 @@ module.exports = function(conference, app, auth) {
 
   app.route('/conf/conference/:confId/speech')
     .get(conference.schedule)
-    .post(auth.requiresLogin, hasAuthorization, conference.createSpeech)
+    .post(auth.requiresLogin, hasAuthorization, conference.createSpeech);
 
   app.route('/conf/conference/:confId/speech/:speechId')
     .get(conference.showSpeech)
