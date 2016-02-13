@@ -14,29 +14,29 @@ var ConferenceSchema = new Schema({
   created: {
     type: Date,
     default: Date.now
-  },
-  title: {
+  }
+  , title: {
     type: String,
     required: true,
     trim: true
-  },
-  description: {
+  }
+  , description: {
     type: String,
     required: true,
     trim: true
-  },
-  user: {
+  }
+  , user: {
     type: Schema.ObjectId,
     ref: 'User'
   }
   , starts: {
     type: Date,
     default: Date.now
-  },
+  }
   , ends: {
     type: Date,
     default: Date.now
-  },
+  }
 });
 
 /**

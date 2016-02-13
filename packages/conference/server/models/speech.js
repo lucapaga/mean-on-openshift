@@ -14,23 +14,23 @@ var SpeechSchema = new Schema({
   created: {
     type: Date,
     default: Date.now
-  },
-  title: {
+  }
+  , title: {
     type: String,
     required: true,
     trim: true
-  },
-  abstract: {
+  }
+  , abstract: {
     type: String,
     required: true,
     trim: true
-  },
-  transcript: {
+  }
+  , transcript: {
     type: String,
     required: false,
     trim: true
-  },
-  user: {
+  }
+  , user: {
     type: Schema.ObjectId,
     ref: 'User'
   }
