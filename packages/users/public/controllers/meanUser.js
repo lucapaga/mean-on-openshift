@@ -120,7 +120,7 @@ angular.module('mean.users')
         console.log("Found " + adminPositions.length + " occurence/ies of 'admin' role for user");
         adminPositions.forEach(function(item, index){
           console.log("Splicing index ", item);
-          adminPositions.splice(item, 1);
+          anUserAccount.roles.splice(item, 1);
         });
         console.log("User new roles are: ", anUserAccount.roles);
         // remove
