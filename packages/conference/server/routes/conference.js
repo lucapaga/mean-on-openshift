@@ -2,6 +2,8 @@
 
 var conference = require('../controllers/conference');
 
+console.log("What is 'conference'? >" + conference + "< -- ", conference);
+
 // Conference authorization helpers
 var hasAuthorization = function(req, res, next) {
   if (!req.user.isAdmin) { // && req.conference.user.id !== req.user.id) {
