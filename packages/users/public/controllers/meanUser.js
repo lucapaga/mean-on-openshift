@@ -76,11 +76,6 @@ angular.module('mean.users')
       }
 
       $scope.retrieveAll = function() {
-        /*
-        Articles.query(function(articles) {
-          $scope.articles = articles;
-        });
-        */
         $scope.listOfUsers = [];
         console.log("retrieving all users ...");
         $http.get('/users/all')

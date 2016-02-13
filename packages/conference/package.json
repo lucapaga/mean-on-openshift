@@ -1,0 +1,15 @@
+{
+  "name": "conference",
+  "version": "0.0.1",
+  "description": "Gestione Conferenze",
+  "author": {
+    "name": "Luca Paganelli"
+  },
+  "mean": "0.4.x",
+  "engines": {
+    "node": "0.10.x",
+    "npm": "1.4.x"
+  },
+  "dependencies": {},
+  "license": "MIT"
+}

@@ -1,0 +1,28 @@
+<section data-ng-controller="ConferencesController" data-ng-init="loadAllConfz()">
+  <ul class="conferences unstyled">
+    <li data-ng-repeat="conference in conferences">
+      <span>{{conference.created | date:'medium'}}</span> /
+      <span>{{conference.user.name}}</span>
+      <h2>
+        <a data-ng-href="#!/conferences/{{conference._id}}">
+          {{conference.title}}
+        </a>
+        <!--
+        <span data-ng-if="hasAuthorization(conference)">
+          <a class="btn" href="/#!/conferences/{{conference._id}}/edit">
+            <i class="glyphicon glyphicon-edit"></i>
+          </a>
+          <a class="btn" data-ng-click="remove(conference);">
+            <i class="glyphicon glyphicon-trash"></i>
+          </a>
+        </span>
+        -->
+      </h2>
+      <div>{{conference.description}}</div>
+    </li>
+  </ul>
+  <h1 data-ng-hide="!conferences || conferences.length">
+    No conferences yet. <br>
+    Why don't you <a href="/#!/conferences/create">Create One</a>?
+  </h1>
+</section>
