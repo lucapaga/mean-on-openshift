@@ -66,7 +66,7 @@ SpeechSchema.path('abstract').validate(function(content) {
  */
  /* -- unable to understand meaning */
  /* it is needed (mandated) by mongoose */
-ConferenceSchema.statics.load = function(id, cb) {
+SpeechSchema.statics.load = function(id, cb) {
   this.findOne({
     _id: id
   }).exec(cb);
