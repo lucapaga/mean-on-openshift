@@ -16,32 +16,31 @@ module.exports = function(ConferenceMeanModule, app, auth) {
   console.log("Conference is ", conferenceSrvCtrl);
   console.log("conference.listAll is ", conferenceSrvCtrl.listAll);
   app.route('/conf/conference')
-    .get(conferenceSrvCtrl.listAll);
-/*
-    .post(auth.requiresLogin, hasAuthorization, conference.createConf);
+    .get(conferenceSrvCtrl.listAll)
+    .post(auth.requiresLogin, hasAuthorization, conferenceSrvCtrl.createConf);
 
   app.route('/conf/conference/:confId')
-    .get(conference.show)
-    .post(auth.requiresLogin, hasAuthorization, conference.updateConf);
+    .get(conferenceSrvCtrl.show)
+    .post(auth.requiresLogin, hasAuthorization, conferenceSrvCtrl.updateConf);
 
   app.route('/conf/conference/:confId/speech')
-    .get(conference.schedule)
-    .post(auth.requiresLogin, hasAuthorization, conference.createSpeech);
+    .get(conferenceSrvCtrl.schedule)
+    .post(auth.requiresLogin, hasAuthorization, conferenceSrvCtrl.createSpeech);
 
   app.route('/conf/conference/:confId/speech/:speechId')
-    .get(conference.showSpeech)
-    .post(auth.requiresLogin, hasAuthorization, conference.updateSpeech);
+    .get(conferenceSrvCtrl.showSpeech)
+    .post(auth.requiresLogin, hasAuthorization, conferenceSrvCtrl.updateSpeech);
 
   app.route('/conf/conference/:confId/speech/:speechId/enroll')
-    .post(auth.requiresLogin, conference.enrollSpeech);
+    .post(auth.requiresLogin, conferenceSrvCtrl.enrollSpeech);
 
   app.route('/conf/conference/:confId/speech/:speechId/enroll/:userId')
-    .post(auth.requiresLogin, hasAuthorization, conference.enrollUserInSpeech);
+    .post(auth.requiresLogin, hasAuthorization, conferenceSrvCtrl.enrollUserInSpeech);
 
-  app.param('confId', conference.conference);
-  app.param('speechId', conference.speech);
-  app.param('userId', conference.user);
-*/
+  app.param('confId', conferenceSrvCtrl.conference);
+  app.param('speechId', conferenceSrvCtrl.speech);
+  app.param('userId', conferenceSrvCtrl.user);
+
   /*
   app.route('/articles/:articleId')
     .get(articles.show)
