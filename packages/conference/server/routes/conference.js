@@ -13,9 +13,9 @@ var hasAuthorization = function(req, res, next) {
 };
 
 module.exports = function(conference, app, auth) {
-/*
   app.route('/conf/conference')
-    .get(conference.listAll)
+    .get(conference.listAll);
+/*
     .post(auth.requiresLogin, hasAuthorization, conference.createConf);
 
   app.route('/conf/conference/:confId')
