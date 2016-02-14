@@ -64,12 +64,14 @@ SpeechSchema.path('abstract').validate(function(content) {
 /**
  * Statics
  */
- /* -- unable to understand meaning
+ /* -- unable to understand meaning */
+ /* it is needed (mandated) by mongoose */
 ConferenceSchema.statics.load = function(id, cb) {
   this.findOne({
     _id: id
-  }).populate('user', 'name username').exec(cb);
+  }).exec(cb);
+  // .populate('user', 'name username')
 };
-*/
+/* */
 
 mongoose.model('Speech', SpeechSchema);
