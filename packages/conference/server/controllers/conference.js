@@ -8,6 +8,8 @@ var mongoose = require('mongoose'),
   Conferences = mongoose.model('Conference'),
   _ = require('lodash');
 
+console.log("Loaded 'Speech' MongoDB model: ", Speeches);
+console.log("Loaded 'Conference' MongoDB model: ", Conferences);
 
 /**
  * Find speech by id
@@ -21,6 +23,7 @@ exports.conference = function(req, res, next, id) {
     next();
   });
 };
+console.log("Created 'conference' handler: ", exports.conference);
 
 /**
  * Find conference by id
@@ -34,6 +37,7 @@ exports.speech = function(req, res, next, id) {
     next();
   });
 };
+console.log("Created 'speech' handler: ", exports.speech);
 
 /**
  * Sets User's ID
@@ -43,6 +47,7 @@ exports.user = function(req, res, next, id) {
   req.userReference = id;
   next();
 };
+console.log("Created 'user' handler: ", exports.user);
 
 /**
  * Elenca tutte le Conferenze
@@ -67,6 +72,7 @@ exports.listAll = function(req, res) {
                res.json(returnObj);
              });
 };
+console.log("Created 'listAll' handler: ", exports.listAll);
 
 /**
  * Crea una nuova Conferenza
@@ -74,6 +80,7 @@ exports.listAll = function(req, res) {
 exports.createConf = function(req, res) {
   res.json(500, {exitCode: "UNINMPLEMENTED"});
 };
+console.log("Created 'createConf' handler: ", exports.createConf);
 
 /**
  * Carica i dettagli di una conferenza
@@ -81,6 +88,7 @@ exports.createConf = function(req, res) {
 exports.show = function(req, res) {
   res.json(500, {exitCode: "UNINMPLEMENTED"});
 };
+console.log("Created 'show' handler: ", exports.show);
 
 /**
  * Modifica una Conferenza
@@ -88,13 +96,15 @@ exports.show = function(req, res) {
 exports.updateConf = function(req, res) {
   res.json(500, {exitCode: "UNINMPLEMENTED"});
 };
+console.log("Created 'updateConf' handler: ", exports.updateConf);
 
 /**
  * Elenca tutti gli Speech in una Conferenza
  */
 exports.schedule = function(req, res) {
   res.json(500, {exitCode: "UNINMPLEMENTED"});
-};  
+};
+console.log("Created 'schedule' handler: ", exports.schedule);
 
 /**
  * Crea un nuovo Speech nell'ambito di una Conferenza
@@ -102,6 +112,7 @@ exports.schedule = function(req, res) {
 exports.createSpeech = function(req, res) {
   res.json(500, {exitCode: "UNINMPLEMENTED"});
 };
+console.log("Created 'createSpeech' handler: ", exports.createSpeech);
 
 /**
  * Carica i dettagli di uno Speech (di una Conferenza)
@@ -109,6 +120,7 @@ exports.createSpeech = function(req, res) {
 exports.showSpeech = function(req, res) {
   res.json(500, {exitCode: "UNINMPLEMENTED"});
 };
+console.log("Created 'showSpeech' handler: ", exports.showSpeech);
 
 /**
  * Modificare i dettagli di uno Speech (di una Conferenza)
@@ -116,6 +128,7 @@ exports.showSpeech = function(req, res) {
 exports.updateSpeech = function(req, res) {
   res.json(500, {exitCode: "UNINMPLEMENTED"});
 };
+console.log("Created 'updateSpeech' handler: ", exports.updateSpeech);
 
 /**
  * Effettua l'enrollment dell'utente loggato su uno speech di una conferenza
@@ -123,6 +136,7 @@ exports.updateSpeech = function(req, res) {
 exports.enrollSpeech = function(req, res) {
   res.json(500, {exitCode: "UNINMPLEMENTED"});
 };
+console.log("Created 'enrollSpeech' handler: ", exports.enrollSpeech);
 
 /**
  * Effettua l'enrollment di un utente qualsiasi su uno speech di una conferenza
@@ -130,3 +144,4 @@ exports.enrollSpeech = function(req, res) {
 exports.enrollUserInSpeech = function(req, res) {
   res.json(500, {exitCode: "UNINMPLEMENTED"});
 };
+console.log("Created 'enrollUserInSpeech' handler: ", exports.enrollUserInSpeech);

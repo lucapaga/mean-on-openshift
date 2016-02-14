@@ -27,17 +27,14 @@ angular.module('lucapaga.conferences').config(['$stateProvider',
     $stateProvider
       .state('conf list', {
         url: '/conferences',
-        templateUrl: 'conference/views/list.html',
-        resolve: {
-          loggedin: checkLoggedin
-        }
-      })/*
-      .state('create article', {
-        url: '/articles/create',
-        templateUrl: 'articles/views/create.html',
-        resolve: {
-          loggedin: checkLoggedin
-        }
-      })*/;
+        templateUrl: 'conference/views/list.html'
+      });
+
+      /*
+      ,
+      resolve: {
+        loggedin: checkLoggedin
+      }
+      */
   }
 ]);
