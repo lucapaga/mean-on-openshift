@@ -13,6 +13,8 @@ var hasAuthorization = function(req, res, next) {
 };
 
 module.exports = function(conference, app, auth) {
+  console.log("Conference is ", conference);
+  console.log("conference.listAll is ", conference.listAll);
   app.route('/conf/conference')
     .get(conference.listAll);
 /*
