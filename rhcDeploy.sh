@@ -22,3 +22,6 @@ git push openshift HEAD:master
 
 echo "############# moving back to 'master' #############"
 git checkout master
+
+echo "############# forcing restart #############"
+rhc app restart sc

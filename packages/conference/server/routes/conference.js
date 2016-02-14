@@ -13,7 +13,7 @@ var hasAuthorization = function(req, res, next) {
 };
 
 module.exports = function(conference, app, auth) {
-
+/*
   app.route('/conf/conference')
     .get(conference.listAll)
     .post(auth.requiresLogin, hasAuthorization, conference.createConf);
@@ -39,7 +39,7 @@ module.exports = function(conference, app, auth) {
   app.param('confId', conference.conference);
   app.param('speechId', conference.speech);
   app.param('userId', conference.user);
-
+*/
   /*
   app.route('/articles/:articleId')
     .get(articles.show)
