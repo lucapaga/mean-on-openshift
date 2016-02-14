@@ -5,19 +5,19 @@
  */
 var Module = require('meanio').Module;
 
-var Conference = new Module('conference');
+var ConferenceMeanModule = new Module('conference');
 
 /*
  * All MEAN packages require registration
  * Dependency injection is used to define required modules
  */
-Conference.register(function(app, auth, database) {
+ConferenceMeanModule.register(function(app, auth, database) {
 
   //We enable routing. By default the Package Object is passed to the routes
-  Conference.routes(app, auth, database);
+  ConferenceMeanModule.routes(app, auth, database);
 
   //We are adding a link to the main menu for all authenticated users
-  Conference.menus.add({
+  ConferenceMeanModule.menus.add({
     'roles': ['authenticated'],
     'title': 'Conferenze',
     'link': 'conf list'
@@ -50,7 +50,7 @@ Conference.register(function(app, auth, database) {
       //you now have the settings object
     });
     */
-  Conference.aggregateAsset('css', 'conferences.css');
+  ConferenceMeanModule.aggregateAsset('css', 'conferences.css');
 
-  return Conference;
+  return ConferenceMeanModule;
 });

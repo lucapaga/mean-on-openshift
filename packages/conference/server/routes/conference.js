@@ -1,8 +1,8 @@
 'use strict';
 
-var conference = require('../controllers/conference');
+var conferenceSrvCtrl = require('../controllers/conference');
 
-console.log("What is 'conference'? >" + conference + "< -- ", conference);
+console.log("What is 'conference'? >" + conferenceSrvCtrl + "< -- ", conferenceSrvCtrl);
 
 // Conference authorization helpers
 var hasAuthorization = function(req, res, next) {
@@ -12,11 +12,11 @@ var hasAuthorization = function(req, res, next) {
   next();
 };
 
-module.exports = function(conference, app, auth) {
-  console.log("Conference is ", conference);
-  console.log("conference.listAll is ", conference.listAll);
+module.exports = function(ConferenceMeanModule, app, auth) {
+  console.log("Conference is ", conferenceSrvCtrl);
+  console.log("conference.listAll is ", conferenceSrvCtrl.listAll);
   app.route('/conf/conference')
-    .get(conference.listAll);
+    .get(conferenceSrvCtrl.listAll);
 /*
     .post(auth.requiresLogin, hasAuthorization, conference.createConf);
 
