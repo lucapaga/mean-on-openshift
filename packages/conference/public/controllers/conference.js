@@ -4,8 +4,8 @@ console.log("Registering controller(s) for 'mean.conference'");
 
 angular.module('mean.conference')
   .controller('ConferencesController',
-              ['$scope', '$stateParams', '$location', 'Global', /*'ConferencesSRV',*/
-  function($scope, $stateParams, $location, Global/*, Conferences*/) {
+              ['$scope', '$stateParams', '$location', '$http', 'Global', /*'ConferencesSRV',*/
+  function($scope, $stateParams, $location, $http, Global/*, Conferences*/) {
     $scope.global = Global;
 
     $scope.hasAuthorization = function(article) {
