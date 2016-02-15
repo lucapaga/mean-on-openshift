@@ -85,13 +85,16 @@ console.log("Created 'listAll' handler: ", exports.listAll);
 exports.createConf = function(req, res) {
   var newConf = new Conferences(req.body);
   newConf.user = req.user;
+  console.log("Going to create new Conference: ", newConf);
   newConf.save(function(err) {
     if (err) {
-      return res.json(500, {
+      console.log("Arrgh, something is not good! ", err);
+      return res.status(500).json({
         exitCode: "FAILED",
         error: err
       });
     }
+    console.log("Ok, we've done it, returning!");
     res.json(newConf);
   });
   // res.json(500, {exitCode: "UNINMPLEMENTED"});
