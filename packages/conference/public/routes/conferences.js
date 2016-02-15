@@ -23,12 +23,16 @@ angular.module('lucapaga.conferences').config(['$stateProvider',
       return deferred.promise;
     };
 
+    console.log("Registering fucking provider, state is 'merdone'");
+
     // states for my app
     $stateProvider
       .state('merdone', {
         url: '/conference',
         templateUrl: 'conference/views/list.html'
       });
+
+    console.log("Registered....?");
 
       /*
       ,
