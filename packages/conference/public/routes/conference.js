@@ -1,10 +1,10 @@
 'use strict';
 
-console.log("Configuring $stateProvider for 'lucapaga.conferences'");
+console.log("Configuring $stateProvider for 'mean.conference'");
 
 //Setting up route
-var incluerModule = angular.module('lucapaga.conferences');
-console.log("Here's angular module 'lucapaga.conferences' - ", incluerModule);
+var incluerModule = angular.module('mean.conference');
+console.log("Here's angular module 'mean.conference' - ", incluerModule);
 
 incluerModule.config(['$stateProvider',
   function($stateProvider) {

@@ -1,4 +1,4 @@
 'use strict';
 
-console.log("Registering angular module 'lucapaga.conferences'");
-angular.module('lucapaga.conferences', []);
+console.log("Registering angular module 'mean.conference'");
+angular.module('mean.conference', []);
