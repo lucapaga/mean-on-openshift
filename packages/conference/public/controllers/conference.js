@@ -33,6 +33,29 @@ angular.module('mean.conference')
         });
     };
 
+    $scope.prepareEmptyConf = function() {
+        $scope.newConf = {};
+    }
+
+    $scope.createNewConference = function(confToSave) {
+      if(!confToSave) {
+        console.log("confToSave is null, using $scope.newConf");
+        confToSave = $scope.newConf;
+      }
+
+      $http({
+        method: "POST",
+        url: "/conf/conference",
+        data: confToSave
+      }).then(function(response){
+        // on ok
+        console.log("Call was OK", response);
+      }, function(response){
+        // on error
+        console.log("Call was KO", response);
+      });
+    }
+
     /*
     $scope.create = function(isValid) {
       if (isValid) {

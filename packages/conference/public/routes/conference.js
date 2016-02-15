@@ -28,16 +28,20 @@ incluerModule.config(['$stateProvider',
       return deferred.promise;
     };
 
-    console.log("Registering fucking provider, state is 'merdone'");
+    //console.log("Registering fucking provider, state is 'merdone'");
 
     // states for my app
     $stateProvider
-      .state('merdone', {
+      .state('all confz', {
         url: '/conference',
         templateUrl: 'conference/views/list.html'
+      })
+      .state('new conf', {
+        url: '/conference/new',
+        templateUrl: 'conference/views/create.html'
       });
 
-    console.log("Registered....?");
+    //console.log("Registered....?");
 
       /*
       ,

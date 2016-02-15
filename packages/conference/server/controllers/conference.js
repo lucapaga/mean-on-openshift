@@ -53,22 +53,27 @@ console.log("Created 'user' handler: ", exports.user);
  * Elenca tutte le Conferenze
  */
 exports.listAll = function(req, res) {
+  console.log("Executing 'listAll' REST handler");
   Conferences.find()
              .sort('-starts')
              .exec(function(err, confz) {
                var returnObj = {};
                if(err) {
+                 console.log("Ouch, error occurred - ", err);
                  returnObj = {
                    exitCode: "ERROR",
                    error: err
                  };
                } else {
+                 console.log("Great, load ended well - " + confz.length + " record(s) found");
                  returnObj = {
                    exitCode: "SUCCESS",
                    confListSize: confz.length,
                    confList: confz
                  };
                }
+
+               console.log("Returning result");
                res.json(returnObj);
              });
 };
@@ -78,7 +83,18 @@ console.log("Created 'listAll' handler: ", exports.listAll);
  * Crea una nuova Conferenza
  */
 exports.createConf = function(req, res) {
-  res.json(500, {exitCode: "UNINMPLEMENTED"});
+  var newConf = new Conferences(req.body);
+  newConf.user = req.user;
+  newConf.save(function(err) {
+    if (err) {
+      return res.json(500, {
+        exitCode: "FAILED",
+        error: err
+      });
+    }
+    res.json(newConf);
+  });
+  // res.json(500, {exitCode: "UNINMPLEMENTED"});
 };
 console.log("Created 'createConf' handler: ", exports.createConf);
 
