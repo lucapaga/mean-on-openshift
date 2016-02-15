@@ -1,5 +1,7 @@
 'use strict';
 
+console.log("Configuring $stateProvider for 'lucapaga.conferences'");
+
 //Setting up route
 angular.module('lucapaga.conferences').config(['$stateProvider',
   function($stateProvider) {

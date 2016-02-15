@@ -1,5 +1,7 @@
 'use strict';
 
+console.log("Registering controller(s) for 'lucapaga.conferences'");
+
 angular.module('lucapaga.conferences')
   .controller('ConferencesController',
               ['$scope', '$stateParams', '$location', 'Global', /*'ConferencesSRV',*/
