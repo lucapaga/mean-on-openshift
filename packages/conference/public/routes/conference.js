@@ -3,7 +3,10 @@
 console.log("Configuring $stateProvider for 'lucapaga.conferences'");
 
 //Setting up route
-angular.module('lucapaga.conferences').config(['$stateProvider',
+var incluerModule = angular.module('lucapaga.conferences');
+console.log("Here's angular module 'lucapaga.conferences' - ", incluerModule);
+
+incluerModule.config(['$stateProvider',
   function($stateProvider) {
     // Check if the user is connected
     var checkLoggedin = function($q, $timeout, $http, $location) {
