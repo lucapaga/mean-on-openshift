@@ -34,7 +34,10 @@ angular.module('mean.conference')
     };
 
     $scope.prepareEmptyConf = function() {
-        $scope.newConf = {};
+        $scope.newConf = {
+          title: "",
+          description: ""
+        };
     }
 
     $scope.createNewConference = function(confToSave) {

@@ -4,7 +4,7 @@
     <div class="form-group" > <!-- ng-class="{ 'has-error' : submitted && articleForm.title.$invalid }" -->
       <label class="col-md-3 control-label">Titolo</label> <!-- mean-token="'create-title'" -->
       <div class="col-md-9">
-        <input name="title" type="text" class="form-control" data-ng-model="title"
+        <input name="title" type="text" class="form-control" data-ng-model="newConf.title"
                 id="title" placeholder="Titolo della Conferenza" > <!-- required -->
         <!--
         <div ng-show="submitted && articleForm.title.$invalid" class="help-block">
@@ -17,7 +17,7 @@
     <div class="form-group" > <!-- ng-class="{ 'has-error' : submitted && articleForm.content.$invalid }" -->
       <label for="description" class="col-md-3 control-label">Content</label> <!-- mean-token="'create-content'"  -->
       <div class="col-md-9">
-        <textarea name="description" data-ng-model="description" id="description"
+        <textarea name="description" data-ng-model="description" id="newConf.description"
                   cols="30" rows="10" placeholder="Descrizione breve"
                   class="form-control" > <!-- required --> </textarea>
         <!--
