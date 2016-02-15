@@ -1,4 +1,15 @@
 <section data-ng-controller="ConferencesController" data-ng-init="prepareEmptyConf()">
+  <div class="alert alert-success" role="alert" data-ng-show="confCreationSucceeded">
+    <strong>Ottimo!</strong> Conferenza creata con successo
+  </div>
+  <div class="alert alert-danger" role="alert" data-ng-show="confCreationFailed"> <!--  alert-dismissible -->
+    <!--
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    -->
+    <strong>{{confCreationFailure.title}}</strong>: {{confCreationFailure.description}}
+  </div>
   <form name="newConferenceForm" class="form-horizontal col-md-6" role="form"
         data-ng-submit="createNewConference()" > <!-- novalidate -->
     <div class="form-group" > <!-- ng-class="{ 'has-error' : submitted && articleForm.title.$invalid }" -->
@@ -15,7 +26,7 @@
 
     </div>
     <div class="form-group" > <!-- ng-class="{ 'has-error' : submitted && articleForm.content.$invalid }" -->
-      <label for="description" class="col-md-3 control-label">Content</label> <!-- mean-token="'create-content'"  -->
+      <label for="description" class="col-md-3 control-label">Descrizione</label> <!-- mean-token="'create-content'"  -->
       <div class="col-md-9">
         <textarea name="description" data-ng-model="newConf.description" id="description"
                   cols="30" rows="10" placeholder="Descrizione breve"
@@ -27,6 +38,25 @@
         -->
       </div>
     </div>
+    <!--
+    <div class="form-group">
+      <label for="starts" class="col-md-3 control-label">Inizia il</label>
+      <div class="col-md-9">
+        <input name="starts" type="text" class="form-control"
+                data-ng-model="newConf.starts"
+                id="starts">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="ends" class="col-md-3 control-label">Termina il</label>
+      <div class="col-md-9">
+        <input name="ends" type="text" class="form-control"
+                data-ng-model="newConf.ends"
+                id="ends">
+      </div>
+    </div>
+    -->
+    <!-- ************************************** -->
     <div class="form-group">
       <div class="col-md-offset-3 col-md-9">
         <button type="submit" class="btn btn-info">Inserisci</button>

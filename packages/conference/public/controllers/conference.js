@@ -38,6 +38,12 @@ angular.module('mean.conference')
           title: "",
           description: ""
         };
+        $scope.confCreationSucceeded = false;
+        $scope.confCreationFailed = false;
+        $scope.confCreationFailure = {
+          title: "ERRORE GENERICO",
+          description: ""
+        };
     }
 
     $scope.createNewConference = function(confToSave) {
@@ -53,9 +59,17 @@ angular.module('mean.conference')
       }).then(function(response){
         // on ok
         console.log("Call was OK", response);
+        $scope.confCreationSucceeded = true;
+        $scope.confCreationFailed = false;
       }, function(response){
         // on error
         console.log("Call was KO", response);
+        $scope.confCreationSucceeded = false;
+        $scope.confCreationFailed = true;
+        $scope.confCreationFailure = {
+          title: "ERRORE GENERICO",
+          description: response.data.error
+        };
       });
     }
 
