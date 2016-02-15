@@ -50,7 +50,7 @@ ConferenceMeanModule.register(function(app, auth, database) {
       //you now have the settings object
     });
     */
-  ConferenceMeanModule.aggregateAsset('css', 'conferences.css');
+  ConferenceMeanModule.aggregateAsset('css', 'conference.css');
 
   return ConferenceMeanModule;
 });
