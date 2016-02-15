@@ -20,7 +20,7 @@ ConferenceMeanModule.register(function(app, auth, database) {
   ConferenceMeanModule.menus.add({
     'roles': ['authenticated'],
     'title': 'Conferenze',
-    'link': 'conf list'
+    'link': 'merdone'
   });
   /*
   Conference.menus.add({
