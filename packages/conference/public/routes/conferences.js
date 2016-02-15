@@ -26,7 +26,7 @@ angular.module('lucapaga.conferences').config(['$stateProvider',
     // states for my app
     $stateProvider
       .state('merdone', {
-        url: '/conferences',
+        url: '/conference',
         templateUrl: 'conference/views/list.html'
       });
 
