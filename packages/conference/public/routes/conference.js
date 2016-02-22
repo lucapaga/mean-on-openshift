@@ -39,6 +39,10 @@ incluerModule.config(['$stateProvider',
       .state('new conf', {
         url: '/conference/new',
         templateUrl: 'conference/views/create.html'
+      })
+      .state('conf dtlz', {
+        url: '/conference/{conference_id}',
+        templateUrl: 'conference/views/conf-dtls.html'
       });
 
     //console.log("Registered....?");

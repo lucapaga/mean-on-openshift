@@ -71,7 +71,14 @@ angular.module('mean.conference')
           description: response.data.error
         };
       });
-    }
+    };
+
+
+    $scope.loadConfDetails = function() {
+      console.log("Running 'loadConfDetails' ... ");
+      console.log("Here's the '$location': ", $location);
+      console.log("Here's the '$stateParams': ", $stateParams);
+    };
 
     /*
     $scope.create = function(isValid) {
