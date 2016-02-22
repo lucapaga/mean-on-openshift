@@ -4,8 +4,8 @@ console.log("Registering controller(s) for 'mean.conference'");
 
 angular.module('mean.conference')
   .controller('ConferencesController',
-              ['$scope', '$stateParams', '$location', '$http', 'Global', /*'ConferencesSRV',*/
-  function($scope, $stateParams, $location, $http, Global/*, Conferences*/) {
+              ['$scope', '$stateParams', '$location', '$http', 'Global', 'ConferencesSRV',
+  function($scope, $stateParams, $location, $http, Global, Conferences) {
     $scope.global = Global;
 
     $scope.hasAuthorization = function(article) {
@@ -138,8 +138,13 @@ angular.module('mean.conference')
         $scope.confSchedule = [];
       };
 
-      console.log("Pusinhg into list this: ", $scope.newScheduleItem);
-      $scope.confSchedule.push($scope.newScheduleItem);
+      var newC = new Conferences({
+        title: $scope.newScheduleItem.title,
+        abstract: $scope.newScheduleItem.abstract
+      });
+
+      console.log("Pusinhg into list this: ", newC);
+      $scope.confSchedule.push(newC);
       console.log("List is ", $scope.confSchedule);
       $scope.createNewSpeech();
       $scope.showNewScheduleItemPane = false;

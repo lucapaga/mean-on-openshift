@@ -3,11 +3,11 @@
 //Articles service used for articles REST endpoint
 angular.module('mean.conference').factory('ConferencesSRV', ['$resource',
   function($resource) {
-    return $resource('articles/:articleId', {
-      articleId: '@_id'
+    return $resource('/conf/conference/:confId', {
+      confId: '@_id'
     }, {
       update: {
-        method: 'PUT'
+        method: 'POST'
       }
     });
   }
