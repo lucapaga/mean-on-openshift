@@ -46,6 +46,10 @@ var SpeechSchema = new Schema({
     type: Schema.ObjectId,
     ref: 'User'
   }
+  , conference: {
+    type: Schema.ObjectId,
+    ref: 'Conference'
+  }
 });
 
 /**

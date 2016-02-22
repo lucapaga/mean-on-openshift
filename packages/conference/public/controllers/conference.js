@@ -80,6 +80,10 @@ angular.module('mean.conference')
       //console.log("Here's the '$stateParams': ", $stateParams);
       console.log("Processing conference with id ", $stateParams.conference_id);
 
+      console.log("Resetting Schedule");
+      $scope.scheduleLoaded=false;
+      $scope.confSchedule=[];
+
       var apiURL =  "/conf/conference/" + $stateParams.conference_id;
       console.log("Calling API at ", apiURL);
       $http({
@@ -89,10 +93,29 @@ angular.module('mean.conference')
         // on ok
         console.log("Call was OK", response);
         $scope.thatConference = response.data;
+        $scope.loadAgenda();
       }, function(response){
         // on error
         console.log("Call was KO", response);
         $scope.thatConference = {};
+      });
+    };
+
+    $scope.loadAgenda = function() {
+      var apiURL =  "/conf/conference/" + $stateParams.conference_id + "/speech";
+      $http({
+        method: "GET",
+        url: apiURL
+      }).then(function(response){
+        // on ok
+        console.log("Call was OK", response);
+        $scope.confSchedule = response.data.speechList;
+        $scope.scheduleLoaded=true;
+      }, function(response){
+        // on error
+        console.log("Call was KO", response);
+        $scope.scheduleLoaded=true;
+        $scope.confSchedule=[];
       });
     };
 

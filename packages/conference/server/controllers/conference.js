@@ -126,7 +126,31 @@ console.log("Created 'updateConf' handler: ", exports.updateConf);
  * Elenca tutti gli Speech in una Conferenza
  */
 exports.schedule = function(req, res) {
-  res.json(500, {exitCode: "UNINMPLEMENTED"});
+  var refConference = req.conference;
+  console.log("Loading schedule for conference id ", refConference._id);
+  var sQuery = Speeches.where({conference: refConference});
+  sQuery.sort('-starts')
+             .exec(function(err, confz) {
+               var returnObj = {};
+               if(err) {
+                 console.log("Ouch, error occurred - ", err);
+                 returnObj = {
+                   exitCode: "ERROR",
+                   error: err
+                 };
+               } else {
+                 console.log("Great, load ended well - " + confz.length + " record(s) found");
+                 returnObj = {
+                   exitCode: "SUCCESS",
+                   speechListSize: confz.length,
+                   speechList: confz
+                 };
+               }
+
+               console.log("Returning result");
+               res.json(returnObj);
+             });
+
 };
 console.log("Created 'schedule' handler: ", exports.schedule);
 
