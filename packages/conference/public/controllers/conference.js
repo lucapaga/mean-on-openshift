@@ -138,10 +138,10 @@ angular.module('mean.conference')
         $scope.confSchedule = [];
       };
 
-      var newC = new Conferences({
+      var newC = {
         title: $scope.newScheduleItem.title,
         abstract: $scope.newScheduleItem.abstract
-      });
+      };
 
       console.log("Pusinhg into list this: ", newC);
       $scope.confSchedule.push(newC);
