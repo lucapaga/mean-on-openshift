@@ -143,11 +143,27 @@ angular.module('mean.conference')
         abstract: $scope.newScheduleItem.abstract
       };
 
+      var apiURL =  "/conf/conference/" + $stateParams.conference_id + "/speech";
+      $http({
+        method: "POST",
+        url: apiURL,
+        data: newC
+      }).then(function(response){
+        // on ok
+        console.log("Call was OK", response);
+        $scope.showNewScheduleItemPane = false;
+        $scope.loadAgenda();
+      }, function(response){
+        // on error
+        console.log("Call was KO", response);
+      });
+
+      /*
       console.log("Pusinhg into list this: ", newC);
       $scope.confSchedule.push(newC);
       console.log("List is ", $scope.confSchedule);
       $scope.createNewSpeech();
-      $scope.showNewScheduleItemPane = false;
+      */
     };
 
     /*

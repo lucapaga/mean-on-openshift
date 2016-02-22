@@ -161,6 +161,22 @@ console.log("Created 'schedule' handler: ", exports.schedule);
  * Crea un nuovo Speech nell'ambito di una Conferenza
  */
 exports.createSpeech = function(req, res) {
+  var newSpeech = new Speeches(req.body);
+  newSpeech.user = req.user;
+  newSpeech.speaker = req.user;
+  newSpeech.conference = req.conference;
+  console.log("Going to create new Speech: ", newConf);
+  newSpeech.save(function(err) {
+    if (err) {
+      console.log("Arrgh, something is not good! ", err);
+      return res.status(500).json({
+        exitCode: "FAILED",
+        error: err
+      });
+    }
+    console.log("Ok, we've done it, returning!");
+    res.json(newConf);
+  });
   res.json(500, {exitCode: "UNINMPLEMENTED"});
 };
 console.log("Created 'createSpeech' handler: ", exports.createSpeech);
