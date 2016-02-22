@@ -129,7 +129,7 @@ exports.schedule = function(req, res) {
   var refConference = req.conference;
   console.log("Loading schedule for conference id ", refConference._id);
   var sQuery = Speeches.where({conference: refConference});
-  sQuery.sort('-starts')
+  sQuery.find().sort('-starts')
              .exec(function(err, confz) {
                var returnObj = {};
                if(err) {
