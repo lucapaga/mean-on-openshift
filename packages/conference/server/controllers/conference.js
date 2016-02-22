@@ -165,7 +165,7 @@ exports.createSpeech = function(req, res) {
   newSpeech.user = req.user;
   newSpeech.speaker = req.user;
   newSpeech.conference = req.conference;
-  console.log("Going to create new Speech: ", newConf);
+  console.log("Going to create new Speech: ", newSpeech);
   newSpeech.save(function(err) {
     if (err) {
       console.log("Arrgh, something is not good! ", err);
@@ -175,7 +175,7 @@ exports.createSpeech = function(req, res) {
       });
     }
     console.log("Ok, we've done it, returning!");
-    res.json(newConf);
+    res.json(newSpeech);
   });
   res.json(500, {exitCode: "UNINMPLEMENTED"});
 };
