@@ -128,6 +128,7 @@ console.log("Created 'updateConf' handler: ", exports.updateConf);
 exports.schedule = function(req, res) {
   var refConference = req.conference;
   console.log("Loading schedule for conference id ", refConference._id);
+  res.json(500, {exitCode: "UNINMPLEMENTED"});
   /*
   var sQuery = Speeches.where({conference: refConference});
   sQuery.find().sort('-starts')
