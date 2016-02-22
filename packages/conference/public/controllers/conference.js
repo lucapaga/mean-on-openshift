@@ -126,7 +126,7 @@ angular.module('mean.conference')
         abstract: "",
         starts: null,
         ends: null
-      });
+      };
       $scope.showNewScheduleItemPane = true;
     };
 
@@ -134,7 +134,7 @@ angular.module('mean.conference')
       // interazione con REST
       if($scope.confSchedule === null) {
         $scope.confSchedule = [];
-      }
+      };
 
       $scope.confSchedule.push($scope.newScheduleItem);
       $scope.createNewSpeech();
