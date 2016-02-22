@@ -83,6 +83,7 @@ angular.module('mean.conference')
       console.log("Resetting Schedule");
       $scope.scheduleLoaded=false;
       $scope.confSchedule=[];
+      $scope.showNewScheduleItemPane = false;
 
       var apiURL =  "/conf/conference/" + $stateParams.conference_id;
       console.log("Calling API at ", apiURL);
@@ -117,6 +118,27 @@ angular.module('mean.conference')
         $scope.scheduleLoaded=true;
         $scope.confSchedule=[];
       });
+    };
+
+    $scope.createNewSpeech = function() {
+      $scope.newScheduleItem = {
+        title: "",
+        abstract: "",
+        starts: null,
+        ends: null
+      });
+      $scope.showNewScheduleItemPane = true;
+    };
+
+    $scope.saveNewSpeech = function() {
+      // interazione con REST
+      if($scope.confSchedule === null) {
+        $scope.confSchedule = [];
+      }
+
+      $scope.confSchedule.push($scope.newScheduleItem);
+      $scope.createNewSpeech();
+      $scope.showNewScheduleItemPane = false;
     };
 
     /*

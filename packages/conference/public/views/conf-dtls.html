@@ -20,30 +20,70 @@
   <div class="alert alert-info" role="alert" data-ng-hide="scheduleLoaded">
     Caricamento agenda ...
   </div>
+
   <div  class="alert alert-warning" role="alert"
         data-ng-show="scheduleLoaded && confSchedule.length > 0">
     Agenda non definita
   </div>
-  <table class="table table-hover" data-ng-show="scheduleLoaded">
-    <thead>
-      <tr>
-        <!--<th>#</th>-->
-        <th>Slot (DA - A)</th>
-        <th>Titolo</th>
-        <th>Speaker</th>
-      </tr>
-    </thead>
-    <tbody data-ng-repeat="speeches in confSchedule">
-      <tr>
-        <!--<th scope="row">1</th>-->
-        <td>{{aSpeech.starts}} - {{aSpeech.starts}}</td>
-        <td>{{aSpeech.title}}</td>
-        <td>
-          {{aSpeech.speaker.name}}
-          (<a href="mailto:{{aSpeech.speaker.email}}">{{aSpeech.speaker.email}}</a>)
-        </td>
-      </tr>
-    </tbody>
-  </table>
+
+  <div  class="bs-callout bs-callout-info"
+        data-ng-show="scheduleLoaded"
+        id="callout-helper-context-color-specificity">
+    <h4><strong>CONFERENCE</strong> AGENDA</h4>
+
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <!--<th>#</th>-->
+          <th>Slot (DA - A)</th>
+          <th>Titolo</th>
+          <th>Speaker</th>
+        </tr>
+      </thead>
+      <tbody data-ng-repeat="speeches in confSchedule">
+        <tr>
+          <!--<th scope="row">1</th>-->
+          <td>{{aSpeech.starts}} - {{aSpeech.starts}}</td>
+          <td>{{aSpeech.title}}</td>
+          <td>
+            {{aSpeech.speaker.name}}
+            (<a href="mailto:{{aSpeech.speaker.email}}">{{aSpeech.speaker.email}}</a>)
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <button type="button" class="btn btn-info btn-lg" data-ng-click="createNewSpeech()">
+      <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+      Nuovo Intervento
+    </button>
+
+    <div class="" data-ng-show="showNewScheduleItemPane">
+      <dl class="dl-horizontal">
+
+        <dt>Titolo</dt>
+        <dd>
+          <input type="text" name="title" value="" data-ng-model="newScheduleItem.title" />
+        </dd>
+        <!-- TITOLO -->
+        <dt>Descrizione Breve</dt>
+        <dd>
+          <input type="text" name="abstract" value="" data-ng-model="newScheduleItem.abstract" />
+        </dd>
+        <!-- TITOLO -->
+        <dt>Inizia</dt>
+        <dd>
+          <input type="text" name="starts" value="" data-ng-model="newScheduleItem.starts" />
+        </dd>
+        <!-- TITOLO -->
+        <dt>Termina</dt>
+        <dd>
+          <input type="text" name="ends" value="" data-ng-model="newScheduleItem.ends" />
+        </dd>
+      </dl>
+    </div>
+
+  </div>
+
 
 </section>
