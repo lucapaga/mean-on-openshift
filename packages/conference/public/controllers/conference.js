@@ -88,7 +88,7 @@ angular.module('mean.conference')
       }).then(function(response){
         // on ok
         console.log("Call was OK", response);
-        $scope.thatConference = response.body;
+        $scope.thatConference = response.data;
       }, function(response){
         // on error
         console.log("Call was KO", response);

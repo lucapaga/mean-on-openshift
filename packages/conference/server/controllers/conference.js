@@ -16,9 +16,11 @@ console.log("Loaded 'Conference' MongoDB model: ", Conferences);
  * (binding dell'app.param su routes/conference.js)
  */
 exports.conference = function(req, res, next, id) {
+  console.log("Loading conference for id: ", id);
   Conferences.load(id, function(err, conference) {
     if (err) return next(err);
     if (!conference) return next(new Error('Failed to load conference for ID ' + id));
+    console.log("Conference found!");
     req.conference = conference;
     next();
   });
@@ -105,6 +107,7 @@ console.log("Created 'createConf' handler: ", exports.createConf);
  * Carica i dettagli di una conferenza
  */
 exports.show = function(req, res) {
+  console.log("Returning loaded conf");
   var loadedConference = req.conference;
   res.json(loadedConference);
   //res.json(500, {exitCode: "UNINMPLEMENTED"});
