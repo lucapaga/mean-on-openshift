@@ -1,7 +1,7 @@
 <section data-ng-controller="ConferencesController" data-ng-init="loadAllConfz()">
-  <ul class="conferences unstyled">
-    <li data-ng-repeat="conference in conferences">
       <!--
+      <ul class="conferences unstyled">
+        <li data-ng-repeat="conference in conferences">
       <span>{{conference.created | date:'medium'}}</span> /
       <span>{{conference.user.name}}</span>
       <h2>
@@ -10,10 +10,12 @@
         </a>
       </h2>
       <div>{{conference.description}}</div>
+    </li>
+  </ul>
       -->
       <!-- -->
 
-      <div class="panel panel-info">
+      <div class="panel panel-info" data-ng-repeat="conference in conferences">
         <div class="panel-heading">
           <span class="pull-left">{{conference.created | date:'medium'}}</span>
           <span class="pull-right">
@@ -31,8 +33,6 @@
       </div>
 
       <!---->
-    </li>
-  </ul>
   <h1 data-ng-hide="!conferences || conferences.length">
     No conferences yet. <br>
     Why don't you <a href="/#!/conference/new">Create One</a>?
