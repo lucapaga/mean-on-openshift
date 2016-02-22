@@ -105,7 +105,9 @@ console.log("Created 'createConf' handler: ", exports.createConf);
  * Carica i dettagli di una conferenza
  */
 exports.show = function(req, res) {
-  res.json(500, {exitCode: "UNINMPLEMENTED"});
+  var loadedConference = req.conference;
+  res.json(loadedConference);
+  //res.json(500, {exitCode: "UNINMPLEMENTED"});
 };
 console.log("Created 'show' handler: ", exports.show);
 

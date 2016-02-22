@@ -76,8 +76,24 @@ angular.module('mean.conference')
 
     $scope.loadConfDetails = function() {
       console.log("Running 'loadConfDetails' ... ");
-      console.log("Here's the '$location': ", $location);
-      console.log("Here's the '$stateParams': ", $stateParams);
+      //console.log("Here's the '$location': ", $location);
+      //console.log("Here's the '$stateParams': ", $stateParams);
+      console.log("Processing conference with id ", $stateParams.conference_id);
+
+      var apiURL =  "/conf/conference/" + $stateParams.conference_id;
+      console.log("Calling API at ", apiURL);
+      $http({
+        method: "GET",
+        url: apiURL
+      }).then(function(response){
+        // on ok
+        console.log("Call was OK", response);
+        $scope.thatConference = response.body;
+      }, function(response){
+        // on error
+        console.log("Call was KO", response);
+        $scope.thatConference = {};
+      });
     };
 
     /*
