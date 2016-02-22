@@ -132,11 +132,15 @@ angular.module('mean.conference')
 
     $scope.saveNewSpeech = function() {
       // interazione con REST
+      console.log("List is ", $scope.confSchedule);
       if($scope.confSchedule === null) {
+        console.log("Creating 'confSchedule' list");
         $scope.confSchedule = [];
       };
 
+      console.log("Pusinhg into list this: ", $scope.newScheduleItem);
       $scope.confSchedule.push($scope.newScheduleItem);
+      console.log("List is ", $scope.confSchedule);
       $scope.createNewSpeech();
       $scope.showNewScheduleItemPane = false;
     };
