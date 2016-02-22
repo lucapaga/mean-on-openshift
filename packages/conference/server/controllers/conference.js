@@ -128,6 +128,7 @@ console.log("Created 'updateConf' handler: ", exports.updateConf);
 exports.schedule = function(req, res) {
   var refConference = req.conference;
   console.log("Loading schedule for conference id ", refConference._id);
+  /*
   var sQuery = Speeches.where({conference: refConference});
   sQuery.find().sort('-starts')
              .exec(function(err, confz) {
@@ -150,6 +151,7 @@ exports.schedule = function(req, res) {
                console.log("Returning result");
                res.json(returnObj);
              });
+             */
 
 };
 console.log("Created 'schedule' handler: ", exports.schedule);
